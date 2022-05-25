@@ -1,0 +1,49 @@
+blueprint:
+  name: "basic2comp"
+  schema_version: "1.1"
+  description: "Basic 2 component blueprint, RG & COS, no API key"
+  inputs:
+    - resource_group_name
+    - provision_rg
+    - region
+    - cos_instance_name
+  outputs:
+    - key: cos_id
+      value: $workitem.basic2comp-cos-storage.outputs.cos_id
+  settings:
+    - key: TF_VERSION
+      value: 1.0
+  source:
+    workitems:
+      - name: basic2comp-resource-group
+        layer: RG
+        source:
+          source_type: github
+          git_branch: "master"
+          git_repo_url: "https://github.ibm.com/steve-strutt"
+          git_folder: "environment-aio-basic2comp-us/IBM-ResourceGroup"
+        inputs:
+          - key: provision
+            value: $blueprint.provision_rg
+          - key: name
+            value: $blueprint.resource_group_name
+        outputs:
+          - key: resource_group_name
+          - key: resource_group_id
+      - name: basic2comp-cos-storage
+        layer: DB
+        source:
+          source_type: github
+          git_branch: "master"
+          git_repo_url: "https://github.ibm.com/steve-strutt"
+          git_folder: "environment-aio-basic2comp-us/IBM-Storage"
+        inputs:
+          - key: cos_instance_name
+            value: $blueprint.cos_instance_name
+          - key: cos_single_site_loc
+            value: "ams03"
+          - key: resource_group_id
+            value: $workitem.basic2comp-resource-group.outputs.resource_group_id
+        outputs:
+          - key: cos_id
+          - key: cos_crn
