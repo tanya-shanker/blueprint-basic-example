@@ -15,20 +15,28 @@
                 "source_type": "git_hub",
                 "git": {
                     "git_repo_url": "https://github.ibm.com/steve-strutt/bp-aio-basic",
-                    "git_repo_folder": "basic-config-us.yaml",
+                    "git_repo_folder": "basic-config-null.yaml",
                     "git_branch": "master"
                 }
-            },
-            "inputs": [
-                {
-                    "name": "region",
-                    "value": "eu-de"
-                },
-                {
-                    "name": "api_key",
-                    "value": "secret"
-                }
-            ]
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "name": "region",
+            "value": "eu-de"
+        },
+        {
+            "name": "cos_instance_name",
+            "value": "basic2comp-cos3"
+        },
+        {
+            "name": "provision_rg",
+            "value": "true"
+        },
+        {
+            "name": "resource_group_name",
+            "value": "myrg3"
         }
     ],
     "description": "Deploys dev environtment instance in Toronto Region",
