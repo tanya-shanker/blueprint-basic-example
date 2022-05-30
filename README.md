@@ -1,28 +1,51 @@
 # Simple Blueprint and blueprint example
 
-This is a simple all-in-one, blueprint, blueprint, config and TF files, example to demonstrate the capabilites of IBM Cloud Schematics Blueprints to deploy a simple 2 module solution stack. It does not require a Cloud APIKey and assumes the users IAM credentials. It will take about 10 minutes to install and delete. 
+This is a simple example to demonstrate the capabilites of IBM Cloud Schematics Blueprints to deploy a simple 2 module solution stack. It does not require a Cloud APIKey and assumes the users IAM credentials. It will take about 10 minutes to install and delete. 
 
-Following types of resources are deployed:
+All user configurable parameters are specified on the command line at Blueprint create time. 
+
+Following resources are deployed:
 - Resource Group
 - COS instance and bucket
 
+The user must have IAM access permisions to create resource groups and COS buckets. 
 
-The blueprint is comprised of two linked modules to deploy the resource group and COS resources. These create the Schematics Workspaces
-- basic-resource-group
-- basic-cos-storage
+The blueprint is comprised of two linked modules to deploy the resource group and COS resources. Source Terraform templates are in repo https://github.ibm.com/steve-strutt/bp-template-examples
 
-The blueprint demonstrates passing of the resource_group_id variable from the basic-resource-group module to the basic-cos-storage module. 
 
+```
+Blueprint file: basic-blueprint.yaml
+├── basic-resource-group
+|    └── source: github.ibm.com/steve-strutt/bp-template-examples/IBM-ResourceGroup
+└── basic-cos-storage
+     └── source: github.ibm.com/steve-strutt/bp-template-example/IBM-Storage
+```
 
 
 ## Blueprint input values
 
 | Name | Type | Value | Description |
 |------|------|------|----------------|
-| region | string | us-east | Resource deployment region |
-| resource_group_name | string | basic2comp-us | Resource group to create |
-| provision_rg | string | true | Create RG - true. Use existing RG - false |
-| cos_instance_name | string | basic2comp-cos | Name for COS instance |
+| resource_group_name | string | null | Resource group to create |
+| provision_rg | string | null | Create RG - true. Use existing RG - false |
+| cos_instance_name | string | null | Name for COS instance |
+
+
+## Input file values
+All inputs to this Blueprint example are defined on the CLI. Null values specified in the input file.  
+
+| Name | Type | Value | Description |
+|------|------|------|----------------|
+| resource_group_name | string | null | Resource group to create |
+| provision_rg | string | null | Create RG - true. Use existing RG - false |
+| cos_instance_name | string | null  | Name for COS instance |
+
+## CLI input values
+| Name | Type | Value | Description |
+|------|------|------|----------------|
+| resource_group_name | string | null | Resource group to create |
+| provision_rg | string | null | Create RG - true. Use existing RG - false |
+| cos_instance_name | string | null  | Name for COS instance |
 
 
 
@@ -33,6 +56,9 @@ The blueprint demonstrates passing of the resource_group_id variable from the ba
 ```
 
 $ ibmcloud schematics blueprint create ----ccccccccccc  c c  c c c c c c
+
+-bp_giturl 
+-config_giturl
 
 $ ibmcloud schematics blueprint install -id blueprint_id
 

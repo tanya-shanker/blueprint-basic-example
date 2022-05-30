@@ -1,0 +1,11 @@
+# All input values specified on the blueprint create command 
+# null values defined for all blueprint inputs ensure values taken from CLI or UI
+
+# Resource parameters
+resource_group_name: 
+# resource_group_name: basic
+provision_rg: 
+# provision_rg: true/false 
+# COS parameters
+cos_instance_name: 
+# cos_instance_name: basic
