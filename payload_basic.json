@@ -1,5 +1,5 @@
 {
-    "name": "Blueprint Basic Very",
+    "name": "Blueprint Basic 2 modules",
     "schema_version": "1.0.0",
     "source": {
         "source_type": "git_hub",
@@ -28,7 +28,7 @@
         },
         {
             "name": "cos_instance_name",
-            "value": "basic2comp-cos3"
+            "value": "basic2comp-cos1"
         },
         {
             "name": "provision_rg",
@@ -39,6 +39,6 @@
             "value": "myrg3"
         }
     ],
-    "description": "Deploys dev environtment instance in Toronto Region",
+    "description": "Deploys a simple two module blueprint",
     "resource_group": "Default"
 }
