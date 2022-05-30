@@ -9,16 +9,6 @@
             "git_branch": "master"
         }
     },
-    "inputs": [
-        {
-            "name": "region",
-            "value": "eu-de"
-        },
-        {
-            "name": "api_key",
-            "value": "secret"
-        }
-    ],
     "config": [
         {
             "source": {
@@ -28,7 +18,17 @@
                     "git_repo_folder": "basic-config-us.yaml",
                     "git_branch": "master"
                 }
-            }
+            },
+            "inputs": [
+                {
+                    "name": "region",
+                    "value": "eu-de"
+                },
+                {
+                    "name": "api_key",
+                    "value": "secret"
+                }
+            ]
         }
     ],
     "description": "Deploys dev environtment instance in Toronto Region",
