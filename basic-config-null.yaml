@@ -2,6 +2,6 @@
 region: us-east
 # Resource parameters
 resource_group_name: basic2comp-us
-provision_rg: true
+provision_rg: 
 # COS parameters
-cos_instance_name: basic2comp-cos
+cos_instance_name: 
