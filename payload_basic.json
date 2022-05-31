@@ -4,7 +4,7 @@
     "source": {
         "source_type": "git_hub",
         "git": {
-            "git_repo_url": "https://github.ibm.com/steve-strutt/bp-aio-basic",
+            "git_repo_url": "https://github.ibm.com/steve-strutt/blueprint-basic-example",
             "git_repo_folder": "basic-blueprint.yaml",
             "git_branch": "master"
         }
@@ -14,7 +14,7 @@
             "source": {
                 "source_type": "git_hub",
                 "git": {
-                    "git_repo_url": "https://github.ibm.com/steve-strutt/bp-aio-basic",
+                    "git_repo_url": "https://github.ibm.com/steve-strutt/blueprint-basic-example",
                     "git_repo_folder": "basic-input-null.yaml",
                     "git_branch": "master"
                 }
@@ -36,7 +36,7 @@
         },
         {
             "name": "resource_group_name",
-            "value": "myrg3"
+            "value": "myrg4"
         }
     ],
     "description": "Deploys a simple two module blueprint",
