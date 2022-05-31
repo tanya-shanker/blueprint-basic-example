@@ -33,7 +33,7 @@ modules:
     source:
       git:
         source_type: github
-        git_repo_url: "https://github.ibm.com/steve-strutt/blueprints-examples-modules/tree/master/IBM-Storage"
+        git_repo_url: "https://github.ibm.com/steve-strutt/blueprint-examples-modules/tree/master/IBM-Storage"
         git_branch: master
     inputs:
       - name: cos_instance_name
