@@ -2,8 +2,6 @@
 
 This is a simple example to demonstrate the capabilites of IBM Cloud Schematics Blueprints to deploy a simple 2 module solution stack using linked Terraform configs (templates). It does not require a Cloud APIKey and assumes the users IAM credentials. It will take about 10 minutes to install and delete. 
 
-All user configurable parameters are specified on the command line at Blueprint create time. 
-
 Following resources are deployed:
 - Resource Group
 - COS instance and bucket
@@ -13,12 +11,11 @@ The user must have IAM access permisions to create resource groups and COS bucke
 
 ## Blueprint definition - basic-blueprint.yaml
 
-The blueprint is comprised of two linked modules to deploy the resource group and COS resources. 
+The blueprint demonstrating linking two Terraform configs as Workspaces to deploy a resource group and COS resources. 
 - basic-resource-group
 - basic-cos-storage
 
-Source Terraform configs are in repo https://github.ibm.com/steve-strutt/blueprint-examples-modules
-
+TF configs are sourced from https://github.ibm.com/steve-strutt/blueprint-examples-modules/
 ```
 Blueprint file: basic-blueprint.yaml
 ├── basic-resource-group
@@ -27,8 +24,8 @@ Blueprint file: basic-blueprint.yaml
      └── source: github.ibm.com/steve-strutt/blueprint-examples-modules/IBM-Storage
 ```
 
-### Blueprint input definitions 
-The blueprint accepts the following inputs:
+### Blueprint definition inputs 
+The blueprint.yaml definition file accepts the following inputs:
 
 | Name | Type | Value | Description |
 |------|------|------|----------------|
@@ -36,13 +33,20 @@ The blueprint accepts the following inputs:
 | provision_rg | string | null | Create RG - true. Use existing RG - false |
 | cos_instance_name | string | null | Name for COS instance |
 
+### Blueprint outputs
+The blueprint.yaml definition creates the following outputs:
 
-## Blueprint inputs
-This example uses CLI inputs and an input file. 
+| Name | Type | Value | Description |
+|------|------|------|----------------|
+| cos_id | string |  | ResourceID/CRN of COS instance |
 
 
-### Config input file - basic-input-null.yaml
-The input file must define the variable names for all the required Blueprint input. In this example these are all set to null to demonstrate the passing of user customised inputs via the CLI.   
+## Blueprint input file basic-input-null.yaml
+This example uses both CLI inputs and an input file basic-input-null.yaml.
+
+
+### Input file - basic-input-null.yaml
+The input file defines the variable names for all the required Blueprint definition inputs. In this example no input values are set and must be supplied as dynamic inputs when the Blueprint is created. 
 
 | Name | Type | Value | Description |
 |------|------|------|----------------|
@@ -51,7 +55,7 @@ The input file must define the variable names for all the required Blueprint inp
 | cos_instance_name | string | null  | Name for COS instance |
 
 ### CLI input values
-Inputs to be specified on the CLI at Blueprint create. These values can be customised at create time. 
+Inputs to be specified on the CLI at Blueprint create. These values can be customied at create time to use an existing ResourceGroup or change names to avoid creating a duplicate. 
 
 | Name | Type | Value | Description |
 |------|------|------|----------------|
@@ -61,11 +65,24 @@ Inputs to be specified on the CLI at Blueprint create. These values can be custo
 
 
 
+## Prerequisites
+1. Install the Schematics CLI plugin by follow the instructions in the [documentation](https://cloud.ibm.com/docs/schematics?topic=schematics-setup-cli)  
+2. Configure [IAM access permissions](https://cloud.ibm.com/docs/schematics?topic=schematics-access) for the Schematics Blueprints service. 
+3. Set Schematics Target Region
+The target (manage from) Schematics region for the Blueprint instance is determined by the IBM Cloud CLI target region. The region can be set with the `ibmcloud target` command.
+
 
 ## Usage 
 Input values on the create command can be customised to user needs and allow referencing of an existing ResourceGroup by specifying `provision_rg=false`. 
 
+<name>
+<resourcegroup>
+
+<provision_rg>
+<resource_group_name>
+
 ```
+$ ibmcloud target -r <region>
 
 $ ibmcloud schematics blueprint create 
 -name=Blueprint_Basic

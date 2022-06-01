@@ -1,5 +1,5 @@
 
-name: "basic"
+name: "basic-2"
 schema_version: "1.0.0"
 description: "Basic 2 component blueprint, RG & COS, no API key"
 inputs:
