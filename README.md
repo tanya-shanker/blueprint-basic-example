@@ -41,11 +41,11 @@ The blueprint.yaml definition creates the following outputs:
 | cos_id | string |  | ResourceID/CRN of COS instance |
 
 
-## Blueprint input file basic-input-null.yaml
-This example uses both CLI inputs and an input file basic-input-null.yaml.
+## Blueprint input file basic-input.yaml
+This example uses both CLI inputs and an input file basic-input.yaml.
 
 
-### Input file - basic-input-null.yaml
+### Input file - basic-input.yaml
 The input file defines the variable names for all the required Blueprint definition inputs. In this example no input values are set and must be supplied as dynamic inputs when the Blueprint is created. 
 
 | Name | Type | Value | Description |
@@ -75,23 +75,24 @@ The target (manage from) Schematics region for the Blueprint instance is determi
 ## Usage 
 Input values on the create command can be customised to user needs and allow referencing of an existing ResourceGroup by specifying `provision_rg=false`. 
 
-<name>
-<resourcegroup>
+***** TEMPORARY USE OF payload_basic.json file from /test folder for CLI testing ********
+***** copy payload_basic.json to CLI execution folder   
 
-<provision_rg>
-<resource_group_name>
 
 ```
 $ ibmcloud target -r <region>
 
+$ ibmcloud schematics blueprint create --file payload_basic.json
+
+```
 $ ibmcloud schematics blueprint create 
 -name=Blueprint_Basic
 -resource_group=Default
 -bp_git_url https://github.ibm.com/steve-strutt/blueprint-example-modules/basic_blueprint.yaml
--input_git_url https://github.ibm.com/steve-strutt/blueprint-example-modules/basic_input_null.yaml
+-input_git_url https://github.ibm.com/steve-strutt/blueprint-example-modules/basic_input.yaml
 -value1
 -value2
-
+```
 
 $ ibmcloud schematics blueprint install -id blueprint_id
 
