@@ -23,14 +23,6 @@
     ],
     "inputs": [
         {
-            "name": "region",
-            "value": "eu-de"
-        },
-        {
-            "name": "cos_instance_name",
-            "value": "basic2comp-cos1"
-        },
-        {
             "name": "provision_rg",
             "value": "true"
         },

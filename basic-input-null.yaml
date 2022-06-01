@@ -7,5 +7,4 @@ resource_group_name:
 provision_rg: 
 # provision_rg: true/false 
 # COS parameters
-cos_instance_name: 
-# cos_instance_name: basic
+cos_instance_name: Blueprint-basic
