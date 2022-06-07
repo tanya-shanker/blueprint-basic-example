@@ -78,6 +78,10 @@ Input values on the create command can be customised to user needs and allow ref
 ***** TEMPORARY USE OF payload_basic.json file from /test folder for CLI testing ********
 ***** copy payload_basic.json to CLI execution folder   
 
+Choose a Resource Group to associate the Blueprint with for Access Control. Available Resource Groups can be confirmed from the [Console Resource Groups](https://cloud.ibm.com/account/resource-groups) page.  
+
+Depending on your account the RG in the payload_basic.json file may need changing to the name of an existing RG. Note some accounts have 'Default', others 'default'.  
+
 
 ```
 $ ibmcloud target -r <region>
