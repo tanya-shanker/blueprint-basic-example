@@ -1,7 +1,7 @@
 
-name: "basic-2"
+name: "Blueprint Basic Example"
 schema_version: "1.0.0"
-description: "Basic 2 component blueprint, RG & COS, no API key"
+description: "Simple two module blueprint. Deploys Resource Group and COS bucket"
 inputs:
   - name: resource_group_name
   - name: provision_rg
