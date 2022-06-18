@@ -18,7 +18,7 @@ modules:
     source:
       git: 
         source_type: github
-        git_repo_url: "https://github.ibm.com/Cloud-Schematics/blueprint-example-modules/tree/master/IBM-ResourceGroup"
+        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/master/IBM-ResourceGroup"
         git_branch: master
     inputs:
       - name: provision
@@ -33,7 +33,7 @@ modules:
     source:
       git:
         source_type: github
-        git_repo_url: "https://github.ibm.com/Cloud-Schematics/blueprint-example-modules/tree/master/IBM-Storage"
+        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/master/IBM-Storage"
         git_branch: master
     inputs:
       - name: cos_instance_name
