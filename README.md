@@ -15,13 +15,13 @@ The blueprint demonstrating linking two Terraform configs as Workspaces to deplo
 - basic-resource-group
 - basic-cos-storage
 
-TF configs are sourced from https://github.ibm.com/steve-strutt/blueprint-examples-modules/
+TF configs are sourced from https://github.ibm.com/Cloud-Schematics/blueprint-example-modules/
 ```
 Blueprint file: basic-blueprint.yaml
 ├── basic-resource-group
-|    └── source: github.ibm.com/steve-strutt/blueprint-examples-modules/IBM-ResourceGroup
+|    └── source: github.ibm.com/schematics-solution/blueprint-example-modules/IBM-ResourceGroup
 └── basic-cos-storage
-     └── source: github.ibm.com/steve-strutt/blueprint-examples-modules/IBM-Storage
+     └── source: github.ibm.com/schematics-solution/blueprint-example-modules/IBM-Storage
 ```
 
 ### Blueprint definition inputs 
@@ -92,8 +92,8 @@ $ ibmcloud schematics blueprint create --file payload_basic.json
 $ ibmcloud schematics blueprint create 
 -name=Blueprint_Basic
 -resource_group=Default
--bp_git_url https://github.ibm.com/steve-strutt/blueprint-example-modules/basic_blueprint.yaml
--input_git_url https://github.ibm.com/steve-strutt/blueprint-example-modules/basic_input.yaml
+-bp_git_url https://github.ibm.com/schematics-solution/blueprint-example-modules/basic_blueprint.yaml
+-input_git_url https://github.ibm.com/schematics-solution/blueprint-example-modules/basic_input.yaml
 -value1
 -value2
 ```
