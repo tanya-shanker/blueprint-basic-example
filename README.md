@@ -91,8 +91,8 @@ $ ibmcloud schematics blueprint create --file payload_basic.json
 $ ibmcloud schematics blueprint create 
 -name=Blueprint_Basic
 -resource_group=Default
--bp_git_url https://github.ibm.com/schematics-solution/basic-blueprint-example/basic_blueprint.yaml
--input_git_url https://github.ibm.com/schematics-solution/basic-blueprint-example/basic_input.yaml
+-bp_git_url https://github.ibm.com/schematics-solution/blueprint-basic-example/basic_blueprint.yaml
+-input_git_url https://github.ibm.com/schematics-solution/blueprint-basic-example/basic_input.yaml
 -input provision_rg=true
 -input resource_group_name=myrg
 ```
