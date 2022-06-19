@@ -1,4 +1,4 @@
-# Simple Blueprint and blueprint example
+# Simple Blueprint example
 
 This is a simple example to demonstrate the capabilites of IBM Cloud Schematics Blueprints to deploy a simple 2 module solution stack using linked Terraform configs (templates). It does not require a Cloud APIKey and assumes the users IAM credentials. It will take about 10 minutes to install and delete. 
 
@@ -15,17 +15,17 @@ The blueprint demonstrating linking two Terraform configs as Workspaces to deplo
 - basic-resource-group
 - basic-cos-storage
 
-TF configs are sourced from https://github.ibm.com/Cloud-Schematics/blueprint-example-modules/
+TF configs are sourced from https://github.com/Cloud-Schematics/blueprint-example-modules/
 ```
 Blueprint file: basic-blueprint.yaml
 ├── basic-resource-group
-|    └── source: github.ibm.com/schematics-solution/blueprint-example-modules/IBM-ResourceGroup
+|    └── source: github.com/Cloud-Schematics/blueprint-example-modules/IBM-ResourceGroup
 └── basic-cos-storage
-     └── source: github.ibm.com/schematics-solution/blueprint-example-modules/IBM-Storage
+     └── source: github.com/Cloud-Schematics/blueprint-example-modules/IBM-Storage
 ```
 
 ### Blueprint definition inputs 
-The blueprint.yaml definition file accepts the following inputs:
+The basic-blueprint.yaml definition file accepts the following inputs:
 
 | Name | Type | Value | Description |
 |------|------|------|----------------|
@@ -34,7 +34,7 @@ The blueprint.yaml definition file accepts the following inputs:
 | cos_instance_name | string | null | Name for COS instance |
 
 ### Blueprint outputs
-The blueprint.yaml definition creates the following outputs:
+The basic-blueprint.yaml definition creates the following outputs:
 
 | Name | Type | Value | Description |
 |------|------|------|----------------|
@@ -52,7 +52,7 @@ The input file defines the variable names for all the required Blueprint definit
 |------|------|------|----------------|
 | resource_group_name | string | null | Resource group to create |
 | provision_rg | string | null | Create RG - true. Use existing RG - false |
-| cos_instance_name | string | null  | Name for COS instance |
+| cos_instance_name | string | Blueprint-basic  | Name for COS instance |
 
 ### CLI input values
 Inputs to be specified on the CLI at Blueprint create. These values can be customied at create time to use an existing ResourceGroup or change names to avoid creating a duplicate. 
@@ -61,7 +61,6 @@ Inputs to be specified on the CLI at Blueprint create. These values can be custo
 |------|------|------|----------------|
 | resource_group_name | string | basic_RG | Resource group to create |
 | provision_rg | string | true | Create new ResourceGrroup - true. Use existing an ResourceGroup - false |
-| cos_instance_name | basic_COS | null  | Name for COS instance |
 
 
 
@@ -92,10 +91,10 @@ $ ibmcloud schematics blueprint create --file payload_basic.json
 $ ibmcloud schematics blueprint create 
 -name=Blueprint_Basic
 -resource_group=Default
--bp_git_url https://github.ibm.com/schematics-solution/blueprint-example-modules/basic_blueprint.yaml
--input_git_url https://github.ibm.com/schematics-solution/blueprint-example-modules/basic_input.yaml
--value1
--value2
+-bp_git_url https://github.ibm.com/schematics-solution/basic-blueprint-example/basic_blueprint.yaml
+-input_git_url https://github.ibm.com/schematics-solution/basic-blueprint-example/basic_input.yaml
+-input provision_rg=true
+-input resource_group_name=myrg
 ```
 
 $ ibmcloud schematics blueprint install -id blueprint_id
