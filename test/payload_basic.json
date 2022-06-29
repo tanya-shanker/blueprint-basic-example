@@ -6,7 +6,7 @@
         "git": {
             "git_repo_url": "https://github.com/Cloud-Schematics/blueprint-basic-example",
             "git_repo_folder": "basic-blueprint.yaml",
-            "git_branch": "master"
+            "git_branch": "main"
         }
     },
     "config": [
@@ -16,7 +16,7 @@
                 "git": {
                     "git_repo_url": "https://github.com/Cloud-Schematics/blueprint-basic-example",
                     "git_repo_folder": "basic-input.yaml",
-                    "git_branch": "master"
+                    "git_branch": "main"
                 }
             }
         }
