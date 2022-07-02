@@ -6,6 +6,7 @@ inputs:
   - name: resource_group_name
   - name: provision_rg
   - name: cos_instance_name
+  - name: cos_storage_plan
 outputs:
   - name: cos_id
     value: $module.basic-cos-storage.outputs.cos_id
@@ -38,6 +39,8 @@ modules:
     inputs:
       - name: cos_instance_name
         value: $blueprint.cos_instance_name
+      - name: cos_storage_plan
+        value: $blueprint.cos_storage_plan
       - name: cos_single_site_loc
         value: "ams03"
       - name: resource_group_id

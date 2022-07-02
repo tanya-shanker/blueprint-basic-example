@@ -8,3 +8,4 @@ provision_rg:
 # provision_rg: true/false 
 # COS parameters
 cos_instance_name: Blueprint-basic
+cos_storage_plan: lite
