@@ -44,7 +44,7 @@ modules:
       - name: cos_single_site_loc
         value: "ams03"
       - name: resource_group_id
-        value: $workitem.basic-resource-group.outputs.resource_group_id
+        value: $module.basic-resource-group.outputs.resource_group_id
     outputs:
       - name: cos_id
       - name: cos_crn

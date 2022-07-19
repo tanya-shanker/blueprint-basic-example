@@ -104,7 +104,7 @@ $ ibmcloud schematics blueprint install -id blueprint_id
 
 $ ibmcloud schematics blueprint job list -id blueprint_id
 
-$ ibmcloud schematics blueprint get -id blueprint_id -profile output
+$ ibmcloud schematics blueprint get -id blueprint_id -profile outputs
 
 $ ibmcloud schematics blueprint destroy -id blueprint_id
 
