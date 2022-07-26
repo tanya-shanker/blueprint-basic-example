@@ -71,11 +71,10 @@ Inputs to be specified on the CLI at Blueprint create time. These values can be 
 
 
 ## Prerequisites
-1. Install the Schematics CLI plugin by follow the instructions in the [documentation](https://cloud.ibm.com/docs/schematics?topic=schematics-setup-cli)  
+1. Install the Schematics CLI plugin by follow the instructions in the [documentation](https://cloud.ibm.com/docs/schematics?topic=schematics-setup-cli).
 2. Configure [IAM access permissions](https://cloud.ibm.com/docs/schematics?topic=schematics-access) for the Schematics Blueprints service. 
 3. Configure [Cloud Object Storage IAM permissions](https://test.cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-iam) to create COS instances.
-4. Set Schematics Target Region
-The target (manage from) Schematics region for the Blueprint instance is determined by the IBM Cloud CLI target region. The region can be set with the `ibmcloud target` command.
+4. Set Schematics Target Region. The region can be set with the `ibmcloud target -r` command. The Schematics Blueprint instance is determined by the IBM Cloud CLI target region.
 
 
 ## Usage 
