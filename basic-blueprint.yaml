@@ -1,5 +1,5 @@
 
-name: "Blueprint Basic Example"
+name: "Blueprint_Basic_Example"
 schema_version: "1.0.0"
 description: "Simple two module blueprint. Deploys Resource Group and COS bucket"
 type: "blueprint"
