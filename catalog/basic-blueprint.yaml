@@ -1,0 +1,52 @@
+name: "Blueprint_Basic_Example"
+schema_version: "1.0.0"
+description: "Simple two module blueprint. Deploys Resource Group and COS bucket"
+type: "blueprint"
+inputs:
+  - name: resource_group_name
+  - name: provision_rg
+  - name: cos_instance_name
+  - name: cos_storage_plan
+outputs:
+  - name: cos_id
+    value: $module.basic-cos-storage.outputs.cos_id
+settings:
+  - name: TF_VERSION
+    value: 1.0
+modules:
+  - name: basic-resource-group
+    module_type: terraform
+    source:
+      source_type: github
+      git:
+        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-ResourceGroup"
+        git_branch: main
+    inputs:
+      - name: provision
+        value: $blueprint.provision_rg
+      - name: name
+        value: $blueprint.resource_group_name
+    outputs:
+      - name: resource_group_name
+      - name: resource_group_id
+  - name: basic-cos-storage
+    layer: DB
+    module_type: terraform
+    source:
+      source_type: ibm_cloud_catalog
+      catalog:
+        catalog_id: "8fb26034-9f24-4a42-b843-a3623affe877"
+        offering_name: "blueprint-example-modules-0.0.1-ibm-storage"
+        offering_version: "0.0.1"
+    inputs:
+      - name: cos_instance_name
+        value: $blueprint.cos_instance_name
+      - name: cos_storage_plan
+        value: $blueprint.cos_storage_plan
+      - name: cos_single_site_loc
+        value: "ams03"
+      - name: resource_group_id
+        value: $module.basic-resource-group.outputs.resource_group_id
+    outputs:
+      - name: cos_id
+      - name: cos_crn
