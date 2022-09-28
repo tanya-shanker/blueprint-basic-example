@@ -1,0 +1,6 @@
+# All input values specified on the blueprint create command 
+# null value requires inputs to be specified via the CLI or UI
+
+# Resource parameters
+resource_group_name: default
+provision_rg: false
