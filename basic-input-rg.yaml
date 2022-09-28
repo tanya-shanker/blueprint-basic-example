@@ -3,4 +3,4 @@
 
 # Resource parameters
 resource_group_name: default
-provision_rg: true
+provision_rg: false
