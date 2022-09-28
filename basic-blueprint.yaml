@@ -6,12 +6,11 @@ type: "blueprint"
 inputs:
   - name: resource_group_name
   - name: provision_rg
-    metadata:
-      default_value: false
+    default: false
   - name: cos_instance_name
   - name: cos_storage_plan
-    metadata:
-      default_value: lite
+    default: lite
+    type: string
 outputs:
   - name: cos_id
     value: $module.basic-cos-storage.outputs.cos_id
