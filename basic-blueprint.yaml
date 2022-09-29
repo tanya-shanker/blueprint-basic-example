@@ -5,12 +5,31 @@ description: "Simple two module blueprint. Deploys Resource Group and COS bucket
 type: "blueprint"
 inputs:
   - name: resource_group_name
+    description: Name of the resource group
+    type: string
+    required: true
+    sensitive: false
+    max_length: 128
   - name: provision_rg
     default: false
+    description: Provision a new resource group? true/false
+    optional: true
+    type: boolean
+    required: true
   - name: cos_instance_name
+    description: COS Instance name
+    type: string
+    required: true
+    sensitive: false
+    max_length: 32
   - name: cos_storage_plan
     default: lite
     type: string
+    description: COS Service plan (lite / standard)
+    required: true
+    sensitive: false
+    options: ['lite', 'standard']
+    max_length: 32
 outputs:
   - name: cos_id
     value: $module.basic-cos-storage.outputs.cos_id
