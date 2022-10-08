@@ -30,6 +30,10 @@ inputs:
     sensitive: false
     options: ['lite', 'standard']
     max_length: 32
+  - name: rg_git_token
+    type: string
+  - name: cos_git_token
+    type: string
 outputs:
   - name: cos_id
     value: $module.basic-cos-storage.outputs.cos_id
@@ -44,6 +48,7 @@ modules:
       git:
         git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-ResourceGroup"
         git_branch: main
+        git_token: $blueprint.rg_git_token
     inputs:
       - name: provision
         value: $blueprint.provision_rg
@@ -60,6 +65,7 @@ modules:
       git:
         git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-Storage"
         git_branch: main
+        git_token: $blueprint.cos_git_token
     inputs:
       - name: cos_instance_name
         value: $blueprint.cos_instance_name
