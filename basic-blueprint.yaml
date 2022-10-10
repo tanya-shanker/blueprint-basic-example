@@ -23,7 +23,7 @@ inputs:
     sensitive: false
     max_length: 32
   - name: cos_storage_plan
-    default_value: lite
+    default: lite
     type: string
     description: COS Service plan (lite / standard)
     required: true
