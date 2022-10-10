@@ -54,6 +54,10 @@ modules:
         value: $blueprint.provision_rg
       - name: name
         value: $blueprint.resource_group_name
+        type: string
+        required: true
+        sensitive: false
+        max_length: 128
     outputs:
       - name: resource_group_name
       - name: resource_group_id
